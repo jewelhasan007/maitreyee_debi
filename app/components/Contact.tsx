@@ -41,7 +41,7 @@ export default function Contact() {
       <div className="section-label">যোগাযোগ · CONTACT</div>
       <h2 className="section-title">আমার সাথে যোগাযোগ করুন</h2>
       <p className="section-subtitle">
-        Let's collaborate, create, and preserve culture together
+        Lets collaborate, create, and preserve culture together
       </p>
 
       <form className="contact-form" onSubmit={handleSubmit}>

@@ -9,11 +9,13 @@ import Contact from './components/Contact';
 import Timeline from './components/Timeline';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
+import Navigation_en from './components/Navigation_en';
 
 export default function Home() {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
+      <Navigation_en></Navigation_en>
       <Hero />
       <About />
       <Books />
