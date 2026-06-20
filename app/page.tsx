@@ -10,13 +10,15 @@ import Timeline from './components/Timeline';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
 import Navigation_en from './components/Navigation_en';
+import Hero_en from './components/Hero_en';
 
 export default function Home() {
   return (
     <>
       {/* <Navigation /> */}
       <Navigation_en></Navigation_en>
-      <Hero />
+      {/* <Hero /> */}
+      <Hero_en></Hero_en>
       <About />
       <Books />
       <Music />
