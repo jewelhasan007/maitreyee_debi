@@ -3,7 +3,30 @@
 import { useState } from 'react';
 
 export default function Books() {
-  const [books, setBooks] = useState([
+  // const [books, setBooks] = useState([
+  //   {
+  //     id: 1,
+  //     title: 'নক্শী কাঁথার মাঠ',
+  //     desc: 'বাংলা লোকশিল্পের এক অনন্য অন্বেষণ',
+  //     colorClass: 'book-cover-1',
+  //     link: '#',
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'রঙিন কাহিনী',
+  //     desc: 'ঐতিহ্য এবং আধুনিকতার মিলন',
+  //     colorClass: 'book-cover-2',
+  //     link: '#',
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'সুরের সন্ধানে',
+  //     desc: 'বাংলা শাস্ত্রীয় সঙ্গীতের ভ্রমণ',
+  //     colorClass: 'book-cover-3',
+  //     link: '#',
+  //   },
+  // ]);
+  const books = useState([
     {
       id: 1,
       title: 'নক্শী কাঁথার মাঠ',
