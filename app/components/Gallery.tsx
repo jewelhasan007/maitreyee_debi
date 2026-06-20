@@ -11,33 +11,12 @@ interface GalleryItem {
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([
-    {
-      id: 1,
-      category: 'paintings',
-      image: '🎨',
-      emoji: '🎨',
-    },
-    {
-      id: 2,
-      category: 'sculptures',
-      image: '🗿',
-      emoji: '🗿',
-    },
-    {
-      id: 3,
-      category: 'crafts',
-      image: '🧵',
-      emoji: '🧵',
-    },
-    {
-      id: 4,
-      category: 'photos',
-      image: '📷',
-      emoji: '📷',
-    },
-  ]);
-
+   const galleryItems: GalleryItem[] = [
+    { id: 1, category: 'paintings', image: '🎨', emoji: '🎨' },
+    { id: 2, category: 'sculptures', image: '🗿', emoji: '🗿' },
+    { id: 3, category: 'crafts', image: '🧵', emoji: '🧵' },
+    { id: 4, category: 'photos', image: '📷', emoji: '📷' },
+  ];
   const filterGallery = (category: string) => {
     setActiveCategory(category);
   };

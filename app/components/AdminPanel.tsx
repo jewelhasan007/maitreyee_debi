@@ -9,7 +9,7 @@ export default function AdminPanel() {
   const [pwError, setPwError] = useState(false);
   const [adminMsg, setAdminMsg] = useState('');
 
-  const ADMIN_PW = 'maitreyee2024';
+  const ADMIN_PW = 'maitreyee2026';
 
   const openAdmin = () => {
     setAdminOpen(true);
