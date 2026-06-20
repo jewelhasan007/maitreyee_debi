@@ -26,7 +26,7 @@ export default function Books() {
   //     link: '#',
   //   },
   // ]);
-  const books = useState([
+  const books = [
     {
       id: 1,
       title: 'নক্শী কাঁথার মাঠ',
@@ -48,7 +48,7 @@ export default function Books() {
       colorClass: 'book-cover-3',
       link: '#',
     },
-  ]);
+  ];
 
   return (
     <section id="books">
