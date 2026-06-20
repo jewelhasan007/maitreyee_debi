@@ -1103,7 +1103,177 @@ footer {
   .about-photo {
     display: none;
   }
+/* about new css */
+.about-photo-marquee {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: hidden;
+}
 
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  height: 180px;
+}
+
+.track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  will-change: transform;
+}
+
+.track img {
+  width: 220px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* SPEED CONTROL (same speed both directions) */
+.marquee.left .track {
+  animation: scrollLeft 22s linear infinite;
+}
+
+.marquee.right .track {
+  animation: scrollRight 22s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+.about-photo-marquee {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  height: 180px;
+}
+
+.track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  will-change: transform;
+}
+
+.track img {
+  width: 220px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.about-photo-marquee {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: hidden;
+}
+
+/* viewport */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  height: 180px;
+  position: relative;
+}
+
+/* IMPORTANT FIX: flex no shrink + full width content */
+.track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* images */
+.track img {
+  width: 220px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* LEFT → RIGHT */
+.track.left {
+  animation: moveLeft 20s linear infinite;
+}
+
+/* RIGHT → LEFT */
+.track.right {
+  animation: moveRight 20s linear infinite;
+}
+
+/* FIXED ANIMATIONS (IMPORTANT) */
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* SPEED CONTROL (same speed both directions) */
+.marquee.left .track {
+  animation: scrollLeft 22s linear infinite;
+}
+
+.marquee.right .track {
+  animation: scrollRight 22s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
   .books-grid {
     grid-template-columns: 1fr;
   }

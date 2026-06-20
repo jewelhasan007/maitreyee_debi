@@ -1,29 +1,35 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Books_en() {
- const books = [
+  const books = [
     {
       id: 1,
-      title: 'নক্শী কাঁথার মাঠ',
-      desc: 'বাংলা লোকশিল্পের এক অনন্য অন্বেষণ',
+      title: 'জন্মভূমি ও প্রিয়জন',
+      desc: 'মৈত্রেয়ী দেবী-র লেখা — একুশে বইমেলা ২০২৪',
       colorClass: 'book-cover-1',
+      img: '/images/books/jonmovhumi.jpg',
       link: '#',
     },
     {
       id: 2,
-      title: 'রঙিন কাহিনী',
-      desc: 'ঐতিহ্য এবং আধুনিকতার মিলন',
+      title: 'কুম্কুম',
+      desc: 'মৈত্রেয়ী দেবী-র অনবদ্য সৃষ্টি',
       colorClass: 'book-cover-2',
+      img: '/images/books/jhumura.jpg',
       link: '#',
     },
     {
       id: 3,
-      title: 'সুরের সন্ধানে',
-      desc: 'বাংলা শাস্ত্রীয় সঙ্গীতের ভ্রমণ',
+      title: 'ফুল পাখিদের কিচির মিচির',
+      desc: 'মৈত্রেয়ী দেবী-র শিশুতোষ গল্প',
       colorClass: 'book-cover-3',
+      img: '/images/books/kichirmichir.jpg',
       link: '#',
     },
   ];
+
   return (
     <section id="books">
       <div className="section-label">BOOKS</div>
@@ -36,7 +42,13 @@ export default function Books_en() {
         {books.map((book) => (
           <div key={book.id} className="book-card">
             <div className={`book-cover ${book.colorClass}`}>
-              {book.title}
+              <Image
+                src={book.img}
+                alt={book.title}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
             </div>
             <div className="book-info">
               <div className="book-title-bn">{book.title}</div>
@@ -48,6 +60,16 @@ export default function Books_en() {
           </div>
         ))}
       </div>
+
+      <style jsx>{`
+        .book-cover {
+          position: relative;
+          width: 100%;
+          height: 280px;
+          overflow: hidden;
+          border-radius: 8px;
+        }
+      `}</style>
     </section>
   );
 }
