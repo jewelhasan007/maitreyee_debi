@@ -10,7 +10,7 @@ export default function Hero_en() {
     "/images/banner/banner2.jpg",
     "/images/banner/banner3.jpg",
     "/images/banner/banner4.jpg",
-    "/images/banner/banner5.jpg",
+    
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
