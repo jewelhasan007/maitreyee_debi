@@ -27,7 +27,17 @@ export default function Gallery() {
 
   return (
     <section id="gallery">
-      <div className="section-label">চিত্রকর্ম · GALLERY</div>
+         
+         <div className="timeline-header">
+      
+        <h2 className="timeline-heading">
+    GALLERY
+        </h2>
+        <p className="timeline-subtitle">
+         Visual narratives of cultural heritage
+        </p>
+      </div>
+
       <h2 className="section-title">শিল্পের সংগ্রহ</h2>
       <p className="section-subtitle">Visual narratives of cultural heritage</p>
 

@@ -25,28 +25,16 @@ import Timeline_en6 from './components/Timeline_en6';
 export default function Home() {
   return (
     <>
-      {/* <Navigation /> */}
-      <Navigation_en></Navigation_en>
-      {/* <Hero /> */}
-      <Hero_en></Hero_en>
-      {/* <About /> */}
-      <About_en></About_en>
-      {/* <Books /> */}
-      <Books_en></Books_en>
-      {/* <Music /> */}
-      <Music_en></Music_en>
-      {/* <Gallery /> */}
-      <Gallery_en></Gallery_en>
-      {/* <Social /> */}
-      <Social_en></Social_en>
-      {/* <Contact /> */}
-      <Contact_en></Contact_en>
-      {/* <Timeline /> */}
-      {/* <Timeline_en></Timeline_en> */}
-      {/* <Timeline_en2></Timeline_en2> */}
-      <Timeline_en6></Timeline_en6>
-      {/* <Footer /> */}
-      <Footer_en></Footer_en>
+          <Navigation_en></Navigation_en>
+          <Hero_en></Hero_en>
+         <About_en></About_en>
+         <Books_en></Books_en>
+         <Music_en></Music_en>
+           <Gallery_en></Gallery_en>
+ <Timeline_en6></Timeline_en6>
+        <Social_en></Social_en>
+          <Contact_en></Contact_en>
+             <Footer_en></Footer_en>
       <AdminPanel />
     </>
   );

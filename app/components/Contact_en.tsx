@@ -38,11 +38,18 @@ export default function Contact() {
 
   return (
     <section id="contact">
-      <div className="section-label">CONTACT</div>
-      <h2 className="section-title">Get in Touch</h2>
-      <p className="section-subtitle">
-        Let&apos;s collaborate, create, and preserve culture together
-      </p>
+       <div className="timeline-header">
+   
+        <h2 className="timeline-heading">
+        Get in Touch
+        </h2>
+
+        <p className="timeline-subtitle">
+  Let&apos;s collaborate, create, and preserve culture together
+        </p>
+      </div>
+  
+    
 
       <div className="contact-wrapper">
         {/* LEFT — INFO PANEL */}

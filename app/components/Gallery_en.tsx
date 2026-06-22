@@ -28,9 +28,15 @@ export default function Gallery_en() {
 
   return (
     <section id="gallery">
-         <h2 className="section-title">Art Collection</h2>
-      <p className="section-subtitle">Visual narratives of cultural heritage</p>
-
+        <div className="timeline-header">
+      
+        <h2 className="timeline-heading">
+    GALLERY
+        </h2>
+        <p className="timeline-subtitle">
+         Visual narratives of cultural heritage
+        </p>
+      </div>
       <div className="gallery-tabs">
         <button
           className={`gallery-tab ${activeCategory === 'all' ? 'active' : ''}`}

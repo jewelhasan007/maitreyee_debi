@@ -32,11 +32,16 @@ export default function Books_en() {
 
   return (
     <section id="books">
-      <div className="section-label">BOOKS</div>
-      <h2 className="section-title">My Publications</h2>
-      <p className="section-subtitle">
-        Words that resonate, stories that inspire
-      </p>
+     
+         <div className="timeline-header">
+      
+        <h2 className="timeline-heading">
+      My Publications
+        </h2>
+        <p className="timeline-subtitle">
+          Words that resonate, stories that inspire
+        </p>
+      </div>
 
       <div className="books-grid">
         {books.map((book) => (

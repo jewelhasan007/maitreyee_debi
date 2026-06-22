@@ -42,61 +42,22 @@ export default function About_en() {
       className="w-full py-24 px-6 md:px-12 lg:px-24 bg-white/50 text-[#5c52ba]"
     >
       {/* HEADER */}
-      <div className="text-center mb-16">
-           {/* ✅ FIXED: Added proper top & bottom padding */}
-        <h2 className="py-6 md:py-10 text-4xl md:text-6xl font-serif font-bold text-[#5c52ba]">
-          My Story
+         <div className="timeline-header">
+               <h2 className="timeline-heading">
+       My Story
         </h2>
+        <p className="timeline-subtitle  ">
+           <span className="text-amber-600 font-medium font-bold"> Maitreyi Devi</span> is a renowned writer, artist, and cultural preservationist
+            dedicated to preserving and promoting the heritage of Bengali culture.  Traditional art forms
+            <span >
+             
+            </span>{' '}
+            hold deep cultural significance. Through my work, I explore the
+            intersection of heritage and contemporary expression.My writing, artwork, and music strive to connect past and present.
+        </p>
       </div>
 
       {/* GRID */}
-      <div className="grid lg:grid-cols-12 gap-16 items-start max-w-7xl mx-auto">
-
-        {/* TEXT SIDE */}
-        <div className="lg:col-span-6 space-y-6">
-
-          <p className="text-black leading-relaxed text-lg md:text-xl">
-            Maitreyi Devi is a renowned writer, artist, and cultural preservationist
-            dedicated to preserving and promoting the heritage of Bengali culture.
-          </p>
-
-          <p className="text-black leading-relaxed text-lg md:text-xl">
-            <span className="text-amber-200 font-medium">
-              Traditional art forms
-            </span>{' '}
-            hold deep cultural significance. Through my work, I explore the
-            intersection of heritage and contemporary expression.
-          </p>
-
-          <p className="text-black leading-relaxed text-lg md:text-xl">
-            My writing, artwork, and music strive to connect past and present.
-          </p>
-
-          {/* STATS */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-10">
-
-            {[
-              { num: '50+', label: 'Published Books' },
-              { num: '30+', label: 'Years Experience' },
-              { num: '100+', label: 'Exhibitions' },
-              { num: '100K+', label: 'Followers' },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="p-5 rounded-2xl text-center text-black bg-white/5 border border-black/10 backdrop-blur-md hover:bg-white/10 transition"
-              >
-                <div className="text-3xl font-bold text-amber-200">
-                  {item.num}
-                </div>
-                <div className="text-black/70 text-sm mt-1">
-                  {item.label}
-                </div>
-              </div>
-            ))}
-
-          </div>
-        </div>
-
         {/* MARQUEE SIDE */}
         <div className="lg:col-span-6 space-y-6 overflow-hidden">
 
@@ -127,9 +88,32 @@ export default function About_en() {
               ))}
             </div>
           </div>
-
-        </div>
+      
       </div>
+
+                {/* STATS */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-10">
+
+            {[
+              { num: '50+', label: 'Published Books' },
+              { num: '30+', label: 'Years Experience' },
+              { num: '100+', label: 'Exhibitions' },
+              { num: '100K+', label: 'Followers' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="p-5 rounded-2xl text-center text-black bg-white/5 border border-black/10 backdrop-blur-md hover:bg-white/10 transition"
+              >
+                <div className="text-3xl font-bold text-amber-200">
+                  {item.num}
+                </div>
+                <div className="text-black/70 text-sm mt-1">
+                  {item.label}
+                </div>
+              </div>
+            ))}
+
+          </div>
 
       {/* ANIMATION */}
       <style jsx>{`

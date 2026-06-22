@@ -44,11 +44,18 @@ export default function Music_en() {
 
   return (
     <section id="music">
+   
+         <div className="timeline-header">
+      
+        <h2 className="timeline-heading">
+      Music & Performances
+        </h2>
+        <p className="timeline-subtitle">
+      Classical meets contemporary in melodic expression
+        </p>
+      </div>
 
-      <h2 className="section-title">Soundscape</h2>
-      <p className="section-subtitle">
-        Classical meets contemporary in melodic expression
-      </p>
+ 
 
       <div className="music-controls">
         <input
