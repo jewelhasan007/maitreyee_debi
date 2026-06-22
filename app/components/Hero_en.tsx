@@ -10,7 +10,6 @@ export default function Hero_en() {
     "/images/banner/banner2.jpg",
     "/images/banner/banner3.jpg",
     "/images/banner/banner4.jpg",
-    
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -23,128 +22,103 @@ export default function Hero_en() {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#1a0d3d] flex items-center">
+    <section className="relative min-h-[100dvh] overflow-hidden bg-[#0a081f] flex items-center">
+      {/* Background remains the same */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a081f] via-[#120f2b] to-[#1a1638]" />
+      <div className="absolute top-[-15%] left-[-10%] w-[800px] h-[800px] rounded-full bg-[#d4af7a]/20 blur-[140px]" />
+      <div className="absolute bottom-[-20%] right-[-12%] w-[900px] h-[900px] rounded-full bg-blue-500/10 blur-[160px]" />
+      <div className="absolute top-[35%] right-[18%] w-[360px] h-[360px] rounded-full bg-white/5 blur-[90px]" />
+      <div className="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#d4af7a_0.8px,transparent_1px)] [background-size:60px_60px]" />
 
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a0d3d] via-[#2a1b4d] to-[#17053d]" />
-      <div className="absolute top-[-10%] left-[-10%] w-[700px] h-[700px] rounded-full bg-[#d9a441]/25 blur-[180px]" />
-      <div className="absolute bottom-[-15%] right-[-10%] w-[800px] h-[800px] rounded-full bg-purple-600/20 blur-[200px]" />
-      <div className="absolute top-[30%] right-[20%] w-[400px] h-[400px] rounded-full bg-white/10 blur-[120px]" />
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d9a441_0.8px,transparent_1px)] [background-size:40px_40px]" />
+      <div className="container mx-auto px-8 md:px-12 lg:px-20 xl:px-28 2xl:px-32 relative z-10 min-h-[100dvh] flex items-center py-16">
+        <div className="grid lg:grid-cols-12 gap-12 xl:gap-20 items-center w-full">
+          
+          {/* LEFT CONTENT - Extra Internal Padding */}
+    {/* LEFT CONTENT - Extra Internal Padding */}
+<motion.div
+  initial={{ opacity: 0, y: 70 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1.1, ease: "easeOut" }}
+  className="lg:col-span-7 flex flex-col gap-9 lg:gap-11 items-center lg:items-start text-center lg:text-left px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20"
+>
+  {/* Name */}
+  <div className="space-y-1 w-full">
+    <h1 className="leading-none font-serif font-bold tracking-[-3px]">
+      <span className="block text-white text-[3.6rem] md:text-[5rem] lg:text-[6.6rem] xl:text-[7.2rem]">
+        Maitreyee
+      </span>
+      <span className="block bg-gradient-to-r from-[#e8d5a3] via-[#d4af7a] to-amber-200 bg-clip-text text-transparent text-[3.6rem] md:text-[5rem] lg:text-[6.6rem] xl:text-[7.2rem] -mt-3">
+        Debi
+      </span>
+    </h1>
+  </div>
 
-      <div className="container mx-auto px-6 lg:px-20 relative z-10 min-h-screen flex items-center">
+  {/* Professions */}
+  <div className="flex items-center gap-5 justify-center lg:justify-start">
+    <div className="h-px w-12 bg-[#d4af7a]" />
+    <p className="text-white/90 text-lg font-light tracking-wider">
+      Lawyer • Author • Writer
+    </p>
+    <div className="h-px w-12 bg-[#d4af7a]" />
+  </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center w-full">
+  {/* Quote */}
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4, duration: 1 }}
+    className="relative p-3 max-w-2xl w-full px-8 md:px-12 py-10 md:py-12 bg-white/5 border border-white/10 backdrop-blur-3xl rounded-3xl shadow-xl"
+  >
+    <div className="absolute inset-x-8 -top-px h-px bg-gradient-to-r from-transparent via-[#d4af7a]/60 to-transparent" />
+    <p className=" text-[1.65rem] md:text-[1.8rem] leading-tight text-white/95 font-light tracking-wide">
+      My journey is woven with culture, justice, and the dreams of children.
+    </p>
+  </motion.div>
 
-          {/* LEFT CONTENT */}
+  {/* Buttons */}
+  <div className="flex flex-col sm:flex-row gap-6 w-full max-w-lg lg:max-w-none justify-center lg:justify-start pt-6">
+    <motion.a
+      href="#about"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className="group px-14 py-6 bg-[#d4af7a] hover:bg-amber-300 text-black font-semibold text-xl rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-[#d4af7a]/40 transition-all duration-300"
+    >
+      Discover My Journey
+      <span className="group-hover:translate-x-1.5 transition">→</span>
+    </motion.a>
+
+    <motion.a
+      href="#contact"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className="px-14 py-6 border-2 border-white/40 hover:border-white text-white font-medium text-xl rounded-2xl backdrop-blur-md hover:bg-white/10 transition-all duration-300"
+    >
+      Get In Touch
+    </motion.a>
+  </div>
+</motion.div>
+
+          {/* RIGHT SIDE - Image */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="
-              max-w-2xl pt-4 lg:pt-0
-              flex flex-col gap-8
-              items-center lg:items-start
-              text-center lg:text-left
-            "
-          >
-
-            {/* Name */}
-            <h1 className="leading-[0.82] font-black tracking-[-2px]">
-              <span className="block text-white text-[3rem] md:text-[5rem] lg:text-[7rem]">
-                Maitreyee
-              </span>
-              <span className="block bg-gradient-to-r from-[#f5e8c7] via-[#d9a441] to-amber-300 bg-clip-text text-transparent text-[3rem] md:text-[5rem] lg:text-[7rem] mt-[-18px]">
-                Debi
-              </span>
-            </h1>
-
-            {/* Professions */}
-            <div className="flex items-center gap-5 justify-center lg:justify-start">
-              <div className="h-px w-20 bg-[#d9a441]" />
-              <p className="text-white/95 font-light tracking-wide">
-                Lawyer • Author • Musician • Activist
-              </p>
-            </div>
-
-            {/* Quote */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 1 }}
-              className="relative p-12 md:p-10 bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl"
-            >
-              <p className="text-[1.75rem] md:text-[1.9rem] leading-relaxed text-white font-light tracking-wide text-center ">
-                My journey is woven with culture and the dreams of children.
-              </p>
-            </motion.div>
-
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-8 justify-center lg:justify-start">
-
-              <motion.a
-                href="#about"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="
-                  min-w-[260px]
-                  min-h-[64px]
-                  px-10
-                  bg-[#d9a441] hover:bg-amber-300
-                  text-black font-semibold text-lg
-                  rounded-2xl
-                  flex items-center justify-center gap-3
-                  shadow-xl shadow-[#d9a441]/30
-                "
-              >
-                Discover My Journey
-                <span>→</span>
-              </motion.a>
-
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="
-                  min-w-[260px]
-                  min-h-[64px]
-                  px-10
-                  border-2 border-white/40 hover:border-white
-                  text-white font-medium text-lg
-                  rounded-2xl
-                  backdrop-blur-md
-                  transition-all duration-300
-                  hover:bg-white/10
-                  flex items-center justify-center
-                "
-              >
-                Get In Touch
-              </motion.a>
-
-            </div>
-          </motion.div>
-
-          {/* RIGHT SIDE */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.4 }}
-            className="flex justify-center lg:justify-end relative"
+            transition={{ duration: 1.3 }}
+            className="lg:col-span-5 flex justify-center lg:justify-end relative"
           >
-            <div className="relative">
-              <div className="absolute -inset-8 bg-gradient-to-br from-[#d9a441]/60 via-amber-300/20 to-transparent rounded-[4rem] blur-3xl -z-10" />
-
-              <div className="relative w-[280px] md:w-[320px] lg:w-[400px] aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+            <div className="relative w-full max-w-[420px] xl:max-w-[480px]">
+              <div className="absolute -inset-10 bg-gradient-to-br from-[#d4af7a]/30 to-transparent rounded-[3.5rem] blur-3xl -z-10" />
+              
+              <div className="relative aspect-[4/4.9] overflow-hidden rounded-3xl border border-white/10 shadow-2xl bg-black/30">
                 <AnimatePresence mode="wait">
                   {images.map((img, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, scale: 1.1 }}
+                      initial={{ opacity: 0, scale: 1.08 }}
                       animate={{
                         opacity: currentImage === index ? 1 : 0,
-                        scale: currentImage === index ? 1 : 1.08,
+                        scale: currentImage === index ? 1 : 1.05,
                       }}
-                      transition={{ duration: 1.4 }}
+                      transition={{ duration: 1.5, ease: "easeInOut" }}
                       className="absolute inset-0"
                     >
                       <Image
@@ -152,29 +126,27 @@ export default function Hero_en() {
                         alt="Maitreyee Debi"
                         fill
                         className="object-cover"
+                        priority={index === 0}
                       />
                     </motion.div>
                   ))}
                 </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40" />
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
 
-      {/* Scroll */}
+      {/* Scroll Indicator */}
       <motion.div
         animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity }}
+        transition={{ duration: 3, repeat: Infinity }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/40"
       >
-        <span className="text-[10px] tracking-[3px] mb-2">
-          SCROLL TO EXPLORE
-        </span>
-        <div className="w-px h-14 bg-gradient-to-b from-transparent via-white/40 to-transparent" />
+        <span className="text-xs tracking-[3px] font-light">SCROLL TO EXPLORE</span>
+        <div className="w-px h-14 bg-gradient-to-b from-transparent via-white/50 to-transparent mt-2" />
       </motion.div>
-
     </section>
   );
 }

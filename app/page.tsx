@@ -19,6 +19,8 @@ import Social_en from './components/Social_en';
 import Contact_en from './components/Contact_en';
 import Timeline_en from './components/Timeline_en';
 import Footer_en from './components/Footer_en';
+import Timeline_en2 from './components/Timeline_en2';
+import Timeline_en6 from './components/Timeline_en6';
 
 export default function Home() {
   return (
@@ -40,7 +42,9 @@ export default function Home() {
       {/* <Contact /> */}
       <Contact_en></Contact_en>
       {/* <Timeline /> */}
-      <Timeline_en></Timeline_en>
+      {/* <Timeline_en></Timeline_en> */}
+      {/* <Timeline_en2></Timeline_en2> */}
+      <Timeline_en6></Timeline_en6>
       {/* <Footer /> */}
       <Footer_en></Footer_en>
       <AdminPanel />

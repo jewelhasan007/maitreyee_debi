@@ -28,7 +28,7 @@ export default function Social_en() {
 
   return (
     <section id="social">
-      <div className="section-label">SOCIAL</div>
+      
       <h2 className="section-title">Connect With Me</h2>
       <p className="section-subtitle">
         Follow my journey across social platforms

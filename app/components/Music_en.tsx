@@ -44,7 +44,7 @@ export default function Music_en() {
 
   return (
     <section id="music">
-      <div className="section-label">MUSIC</div>
+
       <h2 className="section-title">Soundscape</h2>
       <p className="section-subtitle">
         Classical meets contemporary in melodic expression

@@ -28,8 +28,7 @@ export default function Gallery_en() {
 
   return (
     <section id="gallery">
-      <div className="section-label">ARTWORK · GALLERY</div>
-      <h2 className="section-title">Art Collection</h2>
+         <h2 className="section-title">Art Collection</h2>
       <p className="section-subtitle">Visual narratives of cultural heritage</p>
 
       <div className="gallery-tabs">
