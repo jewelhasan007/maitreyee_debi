@@ -3,57 +3,32 @@
 export default function Timeline_en6() {
   const events = [
     {
-      year: '2020',
-      title: 'Project Started',
+      year: 'বর্তমান',
+      title: 'শিশু সাক্ষরতা কার্যক্রম',
       description:
-        'Began the journey with a vision and solid foundation.',
-    },
-    {
-      year: '2021',
-      title: 'First Milestone',
-      description:
-        'Achieved our first major goals and expanded the team.',
-    },
-    {
-      year: '2022',
-      title: 'Rapid Growth',
-      description:
-        'Scaled operations and reached new markets worldwide.',
+        'টরন্টোর বাঙালি শিশুদের বাংলা ভাষা ও সাহিত্যের সাথে পরিচয় করিয়ে দেওয়ার উদ্যোগ — পাঠশালা, গল্পবলা এবং বই উপহারের আয়োজন।',
     },
     {
       year: '2023',
-      title: 'Market Leader',
+      title: 'বৈশাখী উৎসব আয়োজন',
       description:
-        'Became industry leader with innovative solutions.',
+        'টরন্টো বাংলাদেশি কমিউনিটির সাথে বাংলা নববর্ষ উদযাপনে সক্রিয় ভূমিকা — সাংস্কৃতিক পরিবেশনা ও শিশু অনুষ্ঠান।',
     },
     {
-      year: '2024',
-      title: 'Global Expansion',
+      year: '2022',
+      title: 'নারী অধিকার সচেতনতা',
       description:
-        'Established presence in 50+ countries worldwide.',
+        'প্রবাসী বাঙালি নারীদের আইনি অধিকার সম্পর্কে সচেতন করতে বিনামূল্যে আইনি পরামর্শ শিবির আয়োজন।',
     },
-    {
-      year: '2025',
-      title: 'New Era',
-      description:
-        'Leading the industry with cutting-edge technology.',
-    },
+  
   ];
 
   return (
     <section className="timeline-section">
       <div className="timeline-header">
-        <div className="timeline-label">
-          Timeline
-        </div>
-
-        <h2 className="timeline-heading">
-          Our Journey
+              <h2 className="timeline-heading">
+         Cultural & Community Work
         </h2>
-
-        <p className="timeline-subtitle">
-          A timeline of our milestones and achievements
-        </p>
       </div>
 
       {/* ============================= */}
@@ -68,7 +43,7 @@ export default function Timeline_en6() {
           return (
             <div
               key={index}
-              className={`timeline-node ${
+              className={`timeline-node text-center ${
                 isTop
                   ? 'timeline-node-top'
                   : 'timeline-node-bottom'
