@@ -22,7 +22,7 @@ export default function Hero_en() {
   }, []);
 
   return (
-    <section className="relative min-h-[100dvh] overflow-hidden flex items-center bg-[#1A2B1C]">
+    <section id="hero" className="relative min-h-[100dvh] overflow-hidden flex items-center bg-[#1A2B1C]">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0F1A10] via-[#1A2B1C] to-[#142214]" />
 

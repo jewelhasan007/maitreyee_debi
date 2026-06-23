@@ -86,7 +86,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <div className="info-label">Phone</div>
-                  <div className="info-value">+91 98XXX XXXXX</div>
+                  <div className="info-value">+16 47XXX XXXXX</div>
                 </div>
               </div>
 
@@ -99,7 +99,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <div className="info-label">Location</div>
-                  <div className="info-value">Kolkata, West Bengal</div>
+                  <div className="info-value">Ney York, USA</div>
                 </div>
               </div>
             </div>

@@ -118,7 +118,7 @@ import { timelineEvents } from '../lib/timelineData';
 
 export default function Timeline_en6() {
   return (
-    <section className="timeline-section">
+    <section id='timeline' className="timeline-section">
       <div className="timeline-header">
         <div className="timeline-label">
           সাংস্কৃতিক ও সামাজিক কার্যক্রম

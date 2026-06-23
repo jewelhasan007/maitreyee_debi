@@ -1,6 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaYoutube,
+} from 'react-icons/fa';
 
 export default function Navigation_en() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,7 +15,6 @@ export default function Navigation_en() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobile, setIsMobile] = useState(false);
 
-  // detect screen size (IMPORTANT FIX)
   useEffect(() => {
     const checkScreen = () => {
       setIsMobile(window.innerWidth < 768);
@@ -19,7 +25,6 @@ export default function Navigation_en() {
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
 
-  // scroll tracking
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 60);
@@ -30,9 +35,8 @@ export default function Navigation_en() {
         'books',
         'music',
         'gallery',
-        'social',
-        'contact',
         'timeline',
+        'contact',
       ];
 
       let current = 'hero';
@@ -52,7 +56,6 @@ export default function Navigation_en() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // lock scroll
   useEffect(() => {
     document.body.style.overflow = navOpen ? 'hidden' : '';
   }, [navOpen]);
@@ -62,12 +65,19 @@ export default function Navigation_en() {
     { href: '#books', label: 'Books' },
     { href: '#music', label: 'Music' },
     { href: '#gallery', label: 'Gallery' },
-    { href: '#social', label: 'Social' },
-    { href: '#contact', label: 'Contact' },
     { href: '#timeline', label: 'Timeline' },
+    { href: '#contact', label: 'Contact' },
   ];
 
-  const isActive = (href) => activeSection === href.replace('#', '');
+  const socialLinks = [
+    { href: 'https://github.com', icon: FaGithub },
+    { href: 'https://instagram.com', icon: FaInstagram },
+    { href: 'https://linkedin.com', icon: FaLinkedin },
+    { href: 'https://youtube.com', icon: FaYoutube },
+  ];
+
+  const isActive = (href: string) =>
+    activeSection === href.replace('#', '');
 
   return (
     <nav
@@ -87,7 +97,6 @@ export default function Navigation_en() {
         transition: '0.3s',
       }}
     >
-
       {/* LOGO */}
       <a
         href="#hero"
@@ -102,36 +111,100 @@ export default function Navigation_en() {
         Maitreyee <span style={{ color: '#D4A843' }}>Devi</span>
       </a>
 
-      {/* DESKTOP MENU (ONLY DESKTOP) */}
+      {/* DESKTOP */}
       {!isMobile && (
-        <ul
-          style={{
-            display: 'flex',
-            gap: '2rem',
-            listStyle: 'none',
-            margin: 0,
-            padding: 0,
-          }}
-        >
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                style={{
-                  fontSize: '0.85rem',
-                  fontFamily: "'Hind Siliguri', sans-serif",
-                  textDecoration: 'none',
-                  color: isActive(item.href) ? '#D4A843' : '#F0EBD6',
-                }}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          {/* NAV */}
+          <ul
+            style={{
+              display: 'flex',
+              gap: '1.6rem',
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            {navItems.map((item) => {
+              const active = isActive(item.href);
+
+              return (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    style={{
+                      fontSize: '0.85rem',
+                      fontFamily: "'Hind Siliguri', sans-serif",
+                      textDecoration: 'none',
+                      color: active ? '#D4A843' : '#F0EBD6',
+                      paddingBottom: '4px',
+                      borderBottom: active
+                        ? '2px solid #D4A843'
+                        : '2px solid transparent',
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* SOCIAL ICONS */}
+          <div style={{ display: 'flex', gap: '8px' }}>
+            {socialLinks.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={i}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(240,235,214,0.4)',
+                    color: '#F0EBD6',
+                    transition: '0.3s',
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = '#D4A843';
+                    e.currentTarget.style.color = '#1A2B1C';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.color = '#F0EBD6';
+                  }}
+                >
+                  <Icon size={16} />
+                </a>
+              );
+            })}
+          </div>
+
+          {/* CTA */}
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            style={{
+              padding: '8px 14px',
+              marginLeft: '6px',
+              fontSize: '0.85rem',
+              border: '2px solid #4A7C59',
+              borderRadius: '12px',
+              color: '#F0EBD6',
+            }}
+          >
+            Get In Touch
+          </motion.a>
+        </div>
       )}
 
-      {/* MOBILE BUTTON (ONLY MOBILE) */}
+      {/* MOBILE MENU BUTTON */}
       {isMobile && (
         <div
           onClick={() => setNavOpen(!navOpen)}
@@ -148,7 +221,7 @@ export default function Navigation_en() {
         </div>
       )}
 
-      {/* MOBILE MENU (ONLY MOBILE + OPEN) */}
+      {/* MOBILE MENU */}
       {isMobile && navOpen && (
         <div
           style={{
@@ -162,6 +235,7 @@ export default function Navigation_en() {
             zIndex: 9999,
           }}
         >
+          {/* NAV ITEMS */}
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -178,9 +252,41 @@ export default function Navigation_en() {
               {item.label}
             </a>
           ))}
+
+          {/* MOBILE SOCIAL ICONS */}
+          <div
+            style={{
+              display: 'flex',
+              gap: '12px',
+              marginTop: '20px',
+            }}
+          >
+            {socialLinks.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={i}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    width: 38,
+                    height: 38,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(240,235,214,0.4)',
+                    color: '#F0EBD6',
+                  }}
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
+          </div>
         </div>
       )}
-
     </nav>
   );
 }
