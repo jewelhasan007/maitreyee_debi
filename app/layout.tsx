@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'মৈত্রেয়ী দেবী | Maitreyee Debi',
   description: 'Portfolio of Maitreyee Debi - Artist, Author, and Cultural Preservationist',
-  charset: 'utf-8',
+
 };
 
 export default function RootLayout({
