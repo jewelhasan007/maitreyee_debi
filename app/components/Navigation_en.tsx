@@ -3,11 +3,12 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  FaGithub,
+  FaFacebookF,
   FaInstagram,
-  FaLinkedin,
   FaYoutube,
-} from 'react-icons/fa';
+  FaXTwitter,
+  FaLinkedinIn,
+} from 'react-icons/fa6';
 
 export default function Navigation_en() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,10 +17,7 @@ export default function Navigation_en() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
     checkScreen();
     window.addEventListener('resize', checkScreen);
     return () => window.removeEventListener('resize', checkScreen);
@@ -69,15 +67,16 @@ export default function Navigation_en() {
     { href: '#contact', label: 'Contact' },
   ];
 
-  const socialLinks = [
-    { href: 'https://github.com', icon: FaGithub },
-    { href: 'https://instagram.com', icon: FaInstagram },
-    { href: 'https://linkedin.com', icon: FaLinkedin },
-    { href: 'https://youtube.com', icon: FaYoutube },
-  ];
-
   const isActive = (href: string) =>
     activeSection === href.replace('#', '');
+
+  const social = [
+    { icon: FaFacebookF, color: '#1877F2', link: 'https://facebook.com' },
+    { icon: FaInstagram, color: '#E4405F', link: 'https://instagram.com' },
+    { icon: FaYoutube, color: '#FF0000', link: 'https://youtube.com' },
+    { icon: FaXTwitter, color: '#000000', link: 'https://x.com' },
+    { icon: FaLinkedinIn, color: '#0A66C2', link: 'https://linkedin.com' },
+  ];
 
   return (
     <nav
@@ -92,9 +91,19 @@ export default function Navigation_en() {
         justifyContent: 'space-between',
         padding: '0 5vw',
         zIndex: 1000,
-        background: isScrolled ? 'rgba(26,43,28,0.95)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-        transition: '0.3s',
+
+        background: isScrolled
+          ? 'rgba(26, 43, 28, 0.35)'
+          : '#1A2B1C',
+
+        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'none',
+
+        borderBottom: isScrolled
+          ? '1px solid rgba(212, 168, 67, 0.15)'
+          : '1px solid rgba(212, 168, 67, 0.08)',
+
+        transition: 'all 0.35s ease',
       }}
     >
       {/* LOGO */}
@@ -114,51 +123,51 @@ export default function Navigation_en() {
       {/* DESKTOP */}
       {!isMobile && (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          {/* NAV */}
-          <ul
-            style={{
-              display: 'flex',
-              gap: '1.6rem',
-              listStyle: 'none',
-              margin: 0,
-              padding: 0,
-            }}
-          >
-            {navItems.map((item) => {
-              const active = isActive(item.href);
-
-              return (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    style={{
-                      fontSize: '0.85rem',
-                      fontFamily: "'Hind Siliguri', sans-serif",
-                      textDecoration: 'none',
-                      color: active ? '#D4A843' : '#F0EBD6',
-                      paddingBottom: '4px',
-                      borderBottom: active
-                        ? '2px solid #D4A843'
-                        : '2px solid transparent',
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              );
-            })}
+          <ul style={{ display: 'flex', gap: '1.5rem', listStyle: 'none' }}>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  style={{
+                    fontSize: '0.85rem',
+                    fontFamily: "'Hind Siliguri', sans-serif",
+                    color: isActive(item.href) ? '#D4A843' : '#F0EBD6',
+                    borderBottom: isActive(item.href)
+                      ? '2px solid #D4A843'
+                      : '2px solid transparent',
+                    paddingBottom: 4,
+                    textDecoration: 'none',
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
 
-          {/* SOCIAL ICONS */}
-          <div style={{ display: 'flex', gap: '8px' }}>
-            {socialLinks.map((item, i) => {
-              const Icon = item.icon;
+          {/* SOCIAL */}
+          <div style={{ display: 'flex', gap: 10 }}>
+            {social.map((s, i) => {
+              const Icon = s.icon;
+
               return (
-                <a
+                <motion.a
                   key={i}
-                  href={item.href}
+                  href={s.link}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noreferrer"
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = s.color;
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.boxShadow = `0 0 15px ${s.color}`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background =
+                      'rgba(255,255,255,0.06)';
+                    e.currentTarget.style.color = s.color;
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
                   style={{
                     width: 34,
                     height: 34,
@@ -166,54 +175,44 @@ export default function Navigation_en() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid rgba(240,235,214,0.4)',
-                    color: '#F0EBD6',
-                    transition: '0.3s',
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.background = '#D4A843';
-                    e.currentTarget.style.color = '#1A2B1C';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = '#F0EBD6';
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    color: s.color,
+                    fontSize: 15,
                   }}
                 >
-                  <Icon size={16} />
-                </a>
+                  <Icon />
+                </motion.a>
               );
             })}
           </div>
 
           {/* CTA */}
-          <motion.a
+          {/* <motion.a
             href="#contact"
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             style={{
+              marginLeft: 6,
               padding: '8px 14px',
-              marginLeft: '6px',
-              fontSize: '0.85rem',
-              border: '2px solid #4A7C59',
-              borderRadius: '12px',
+              borderRadius: 12,
+              border: '1px solid rgba(212,168,67,0.6)',
               color: '#F0EBD6',
+              textDecoration: 'none',
+              fontSize: '0.85rem',
+              fontFamily: "'Hind Siliguri', sans-serif",
             }}
           >
             Get In Touch
-          </motion.a>
+          </motion.a> */}
         </div>
       )}
 
-      {/* MOBILE MENU BUTTON */}
+      {/* MOBILE BUTTON */}
       {isMobile && (
         <div
           onClick={() => setNavOpen(!navOpen)}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 5,
-            cursor: 'pointer',
-          }}
+          style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 5 }}
         >
           <span style={{ width: 26, height: 2, background: '#F0EBD6' }} />
           <span style={{ width: 26, height: 2, background: '#F0EBD6' }} />
@@ -221,7 +220,7 @@ export default function Navigation_en() {
         </div>
       )}
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU (RESTORED) */}
       {isMobile && navOpen && (
         <div
           style={{
@@ -230,12 +229,11 @@ export default function Navigation_en() {
             right: 0,
             width: '80%',
             height: '100vh',
-            background: '#1A2B1C',
+            background: 'rgba(26,43,28,0.95)',
+            backdropFilter: 'blur(20px)',
             padding: 30,
-            zIndex: 9999,
           }}
         >
-          {/* NAV ITEMS */}
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -244,31 +242,26 @@ export default function Navigation_en() {
               style={{
                 display: 'block',
                 padding: '12px 0',
-                fontSize: '1.1rem',
-                textDecoration: 'none',
                 color: isActive(item.href) ? '#D4A843' : '#F0EBD6',
+                textDecoration: 'none',
               }}
             >
               {item.label}
             </a>
           ))}
 
-          {/* MOBILE SOCIAL ICONS */}
-          <div
-            style={{
-              display: 'flex',
-              gap: '12px',
-              marginTop: '20px',
-            }}
-          >
-            {socialLinks.map((item, i) => {
-              const Icon = item.icon;
+          {/* MOBILE SOCIAL */}
+          <div style={{ display: 'flex', gap: 12, marginTop: 20 }}>
+            {social.map((s, i) => {
+              const Icon = s.icon;
+
               return (
-                <a
+                <motion.a
                   key={i}
-                  href={item.href}
+                  href={s.link}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noreferrer"
+                  whileHover={{ scale: 1.15 }}
                   style={{
                     width: 38,
                     height: 38,
@@ -276,12 +269,13 @@ export default function Navigation_en() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid rgba(240,235,214,0.4)',
-                    color: '#F0EBD6',
+                    background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    color: s.color,
                   }}
                 >
-                  <Icon size={18} />
-                </a>
+                  <Icon />
+                </motion.a>
               );
             })}
           </div>
