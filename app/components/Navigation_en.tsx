@@ -6,7 +6,20 @@ export default function Navigation_en() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isMobile, setIsMobile] = useState(false);
 
+  // detect screen size (IMPORTANT FIX)
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
+  // scroll tracking
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 60);
@@ -24,12 +37,11 @@ export default function Navigation_en() {
 
       let current = 'hero';
 
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-
+      for (const id of sections) {
+        const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 150) current = sectionId;
+          if (rect.top <= 150) current = id;
         }
       }
 
@@ -40,18 +52,10 @@ export default function Navigation_en() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 🔒 lock body scroll when drawer open
+  // lock scroll
   useEffect(() => {
-    if (navOpen) {
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = navOpen ? 'hidden' : '';
   }, [navOpen]);
-
-  const closeNav = () => setNavOpen(false);
 
   const navItems = [
     { href: '#about', label: 'About' },
@@ -63,110 +67,120 @@ export default function Navigation_en() {
     { href: '#timeline', label: 'Timeline' },
   ];
 
+  const isActive = (href) => activeSection === href.replace('#', '');
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-lg py-3'
-          : 'bg-transparent py-5'
-      }`}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 68,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 5vw',
+        zIndex: 1000,
+        background: isScrolled ? 'rgba(26,43,28,0.95)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+        transition: '0.3s',
+      }}
     >
-      {/* HEADER */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between w-full">
 
-        {/* LOGO */}
-        <a
-          href="#hero"
-          className="flex items-center gap-2 text-2xl font-serif tracking-tight hover:scale-105 transition"
+      {/* LOGO */}
+      <a
+        href="#hero"
+        style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: '1.4rem',
+          fontWeight: 600,
+          color: '#F0EBD6',
+          textDecoration: 'none',
+        }}
+      >
+        Maitreyee <span style={{ color: '#D4A843' }}>Devi</span>
+      </a>
+
+      {/* DESKTOP MENU (ONLY DESKTOP) */}
+      {!isMobile && (
+        <ul
+          style={{
+            display: 'flex',
+            gap: '2rem',
+            listStyle: 'none',
+            margin: 0,
+            padding: 0,
+          }}
         >
-          <span className="text-gray-900 dark:text-white">Maitreyee</span>
-          <span className="text-amber-600 dark:text-amber-500 font-light">
-            Devi
-          </span>
-        </a>
-
-        {/* DESKTOP MENU */}
-        <ul className="hidden md:flex items-center gap-8 lg:gap-10 text-sm font-medium uppercase tracking-widest">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className={`relative py-2 transition hover:text-amber-600 dark:hover:text-amber-500 ${
-                  activeSection === item.href.slice(1)
-                    ? 'text-amber-600 dark:text-amber-500'
-                    : 'text-gray-700 dark:text-gray-300'
-                }`}
+                style={{
+                  fontSize: '0.85rem',
+                  fontFamily: "'Hind Siliguri', sans-serif",
+                  textDecoration: 'none',
+                  color: isActive(item.href) ? '#D4A843' : '#F0EBD6',
+                }}
               >
                 {item.label}
               </a>
             </li>
           ))}
         </ul>
+      )}
 
-        {/* HAMBURGER */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 z-[10000]"
-          onClick={() => setNavOpen(true)}
-          aria-label="Open menu"
+      {/* MOBILE BUTTON (ONLY MOBILE) */}
+      {isMobile && (
+        <div
+          onClick={() => setNavOpen(!navOpen)}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 5,
+            cursor: 'pointer',
+          }}
         >
-          <span className="w-6 h-0.5 bg-gray-900 dark:bg-white" />
-          <span className="w-6 h-0.5 bg-gray-900 dark:bg-white" />
-          <span className="w-6 h-0.5 bg-gray-900 dark:bg-white" />
-        </button>
-      </div>
-
-      {/* BACKDROP */}
-      <div
-        className={`fixed inset-0 z-[9998] transition-opacity duration-300 ${
-          navOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
-        onClick={closeNav}
-      >
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
-
-      {/* 🔥 SAAS STYLE DRAWER (FIXED TRANSPARENCY ISSUE) */}
-      <div
-        className={`fixed top-0 right-0 h-full w-[80%] max-w-sm z-[9999] transform transition-transform duration-300 ease-in-out ${
-          navOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-        style={{ isolation: 'isolate' }}
-      >
-        {/* HARD BACKGROUND LAYER (prevents mobile transparency bug) */}
-        <div className="absolute inset-0 bg-white dark:bg-gray-950 opacity-100" />
-
-        {/* CONTENT */}
-        <div className="relative h-full flex flex-col">
-
-          {/* CLOSE BUTTON */}
-          <div className="flex justify-end p-6">
-            <button
-              onClick={closeNav}
-              className="text-gray-700 dark:text-gray-300 text-2xl"
-            >
-              ✕
-            </button>
-          </div>
-
-          {/* MENU ITEMS */}
-          <div className="flex flex-col gap-6 px-8 pt-10 text-lg font-light">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={closeNav}
-                className={`transition hover:text-amber-600 dark:hover:text-amber-500 ${
-                  activeSection === item.href.slice(1)
-                    ? 'text-amber-600 dark:text-amber-500 font-medium'
-                    : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
+          <span style={{ width: 26, height: 2, background: '#F0EBD6' }} />
+          <span style={{ width: 26, height: 2, background: '#F0EBD6' }} />
+          <span style={{ width: 26, height: 2, background: '#F0EBD6' }} />
         </div>
-      </div>
+      )}
+
+      {/* MOBILE MENU (ONLY MOBILE + OPEN) */}
+      {isMobile && navOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 68,
+            right: 0,
+            width: '80%',
+            height: '100vh',
+            background: '#1A2B1C',
+            padding: 30,
+            zIndex: 9999,
+          }}
+        >
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setNavOpen(false)}
+              style={{
+                display: 'block',
+                padding: '12px 0',
+                fontSize: '1.1rem',
+                textDecoration: 'none',
+                color: isActive(item.href) ? '#D4A843' : '#F0EBD6',
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      )}
+
     </nav>
   );
 }

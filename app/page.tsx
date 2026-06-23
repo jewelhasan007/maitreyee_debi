@@ -32,7 +32,7 @@ export default function Home() {
          <Music_en></Music_en>
            <Gallery_en></Gallery_en>
  <Timeline_en6></Timeline_en6>
-        <Social_en></Social_en>
+        {/* <Social_en></Social_en> */}
           <Contact_en></Contact_en>
              <Footer_en></Footer_en>
       <AdminPanel />
