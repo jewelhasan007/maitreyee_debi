@@ -1,19 +1,26 @@
+'use client';
+
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { booksAll } from '@/app/lib/bookData';
 import Image from 'next/image';
+import { useRef } from 'react';
 
-export default async function BookDetailsPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default function BookDetailsPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const book = booksAll.find((item) => item.slug === slug);
 
   if (!book) {
     notFound();
   }
+
+  const otherBooks = booksAll.filter((b) => b.slug !== slug);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: 'left' | 'right') => {
+    if (!trackRef.current) return;
+    trackRef.current.scrollBy({ left: dir === 'right' ? 300 : -300, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -42,9 +49,9 @@ export default async function BookDetailsPage({
           letter-spacing: 0.3px;
           transition: color 0.2s;
         }
-        .book-back-link:hover {
-          color: var(--warm-bronze);
-        }
+        .book-back-link:hover { color: var(--warm-bronze); }
+
+        /* ── Main card ── */
         .book-card {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -55,9 +62,7 @@ export default async function BookDetailsPage({
           background: #fff;
         }
         @media (max-width: 768px) {
-          .book-card {
-            grid-template-columns: 1fr;
-          }
+          .book-card { grid-template-columns: 1fr; }
           .book-cover-panel {
             border-right: none !important;
             border-bottom: 1px solid rgba(212,168,67,0.15);
@@ -77,8 +82,7 @@ export default async function BookDetailsPage({
         }
         .cover-ring-outer {
           position: absolute;
-          width: 320px;
-          height: 320px;
+          width: 320px; height: 320px;
           border-radius: 50%;
           background: rgba(212,168,67,0.07);
           top: 50%; left: 50%;
@@ -87,8 +91,7 @@ export default async function BookDetailsPage({
         }
         .cover-ring-inner {
           position: absolute;
-          width: 220px;
-          height: 220px;
+          width: 220px; height: 220px;
           border-radius: 50%;
           border: 1px solid rgba(212,168,67,0.2);
           top: 50%; left: 50%;
@@ -140,18 +143,10 @@ export default async function BookDetailsPage({
           margin-bottom: 20px;
         }
         .book-rule {
-          width: 48px;
-          height: 3px;
+          width: 48px; height: 3px;
           background: var(--saffron);
           border-radius: 99px;
           margin-bottom: 20px;
-        }
-        .book-desc {
-          font-family: 'Hind Siliguri', system-ui, sans-serif;
-          font-size: 0.95rem;
-          color: var(--text-mid);
-          line-height: 1.8;
-          margin-bottom: 22px;
         }
         .book-tags {
           display: flex;
@@ -163,7 +158,6 @@ export default async function BookDetailsPage({
           font-family: 'Inter', sans-serif;
           font-size: 11px;
           font-weight: 500;
-          letter-spacing: 0.3px;
           color: var(--warm-bronze);
           background: rgba(212,168,67,0.10);
           border: 1px solid rgba(212,168,67,0.28);
@@ -212,7 +206,6 @@ export default async function BookDetailsPage({
           font-family: 'Hind Siliguri', system-ui, sans-serif;
           font-size: 1rem;
           font-weight: 600;
-          letter-spacing: 0.3px;
           cursor: pointer;
           text-decoration: none;
           box-shadow: 0 4px 20px rgba(212,168,67,0.38);
@@ -228,15 +221,145 @@ export default async function BookDetailsPage({
           font-size: 11px;
           text-align: center;
           color: var(--text-light);
-          letter-spacing: 0.3px;
         }
+
+        /* ── Kantha divider ── */
         .book-kantha {
-          width: 100%;
-          height: 32px;
+          width: 100%; height: 32px;
           margin-top: 56px;
           display: flex;
           align-items: center;
           justify-content: center;
+        }
+
+        /* ── More Books carousel ── */
+        .more-books-section {
+          margin-top: 64px;
+        }
+        .more-books-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 28px;
+        }
+        .more-books-heading {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.4rem, 2.5vw, 2rem);
+          font-weight: 400;
+          color: var(--indigo-deep);
+        }
+        .more-books-heading span {
+          color: var(--saffron);
+        }
+        .carousel-nav {
+          display: flex;
+          gap: 10px;
+        }
+        .carousel-btn {
+          width: 40px; height: 40px;
+          border-radius: 50%;
+          border: 1px solid rgba(212,168,67,0.4);
+          background: rgba(212,168,67,0.08);
+          color: var(--saffron);
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.2s, border-color 0.2s;
+          line-height: 1;
+        }
+        .carousel-btn:hover {
+          background: var(--saffron);
+          color: #fff;
+          border-color: var(--saffron);
+        }
+        .carousel-track-wrap {
+          overflow: hidden;
+          border-radius: 16px;
+        }
+        .carousel-track {
+          display: flex;
+          gap: 20px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          padding-bottom: 4px;
+        }
+        .carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-book-card {
+          flex: 0 0 220px;
+          scroll-snap-align: start;
+          background: #fff;
+          border-radius: 16px;
+          border: 1px solid rgba(212,168,67,0.18);
+          box-shadow: 0 4px 20px rgba(26,43,28,0.07);
+          overflow: hidden;
+          text-decoration: none;
+          transition: transform 0.25s, box-shadow 0.25s;
+          display: flex;
+          flex-direction: column;
+        }
+        .carousel-book-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 32px rgba(26,43,28,0.14);
+        }
+        .carousel-cover {
+          position: relative;
+          width: 100%;
+          height: 200px;
+          background: linear-gradient(145deg, rgba(212,168,67,0.10) 0%, rgba(74,124,89,0.08) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .carousel-cover img {
+          width: 120px !important;
+          height: 170px !important;
+          object-fit: cover !important;
+          object-position: center !important;
+          border-radius: 6px;
+          filter: drop-shadow(0 6px 14px rgba(26,43,28,0.22));
+        }
+        .carousel-book-info {
+          padding: 16px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        .carousel-book-title {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.05rem;
+          font-weight: 400;
+          color: var(--indigo-deep);
+          line-height: 1.3;
+          margin-bottom: 6px;
+        }
+        .carousel-book-desc {
+          font-family: 'Hind Siliguri', system-ui, sans-serif;
+          font-size: 0.78rem;
+          color: var(--text-light);
+          line-height: 1.5;
+          margin-bottom: 14px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .carousel-book-link {
+          font-family: 'Inter', sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          color: var(--saffron);
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+        }
+        @media (max-width: 600px) {
+          .carousel-book-card { flex: 0 0 180px; }
+          .carousel-cover img { width: 100px !important; height: 145px !important; }
         }
       `}</style>
 
@@ -245,10 +368,10 @@ export default async function BookDetailsPage({
 
           {/* Back link */}
           <Link href="/" className="book-back-link">
-            ← Back to Publications
+            ← Back to Home
           </Link>
 
-          {/* Card */}
+          {/* Main card */}
           <div className="book-card">
 
             {/* Left: cover */}
@@ -268,22 +391,14 @@ export default async function BookDetailsPage({
 
             {/* Right: content */}
             <div className="book-content-panel">
-
               <p className="book-eyebrow">Books</p>
-
               <h1 className="book-title">{book.title}</h1>
-
-              {book.desc && (
-                <p className="book-subtitle">{book.desc}</p>
-              )}
-
+              {book.desc && <p className="book-subtitle">{book.desc}</p>}
               <div className="book-rule" />
-
               <div className="book-tags">
                 <span className="book-tag">Bengali Literature</span>
                 <span className="book-tag">Classic Edition</span>
               </div>
-
               <div className="book-meta">
                 <div className="book-meta-item">
                   <p className="book-meta-label">Format</p>
@@ -298,7 +413,6 @@ export default async function BookDetailsPage({
                   <p className="book-meta-value">★ 4.5 / 5</p>
                 </div>
               </div>
-
               <a
                 href={book.amazonUrl || 'https://www.amazon.com'}
                 target="_blank"
@@ -312,9 +426,7 @@ export default async function BookDetailsPage({
                 </svg>
                 Buy on Amazon
               </a>
-
               <p className="book-trust">Secure checkout · Ships worldwide via Amazon</p>
-
             </div>
           </div>
 
@@ -330,6 +442,50 @@ export default async function BookDetailsPage({
               ))}
             </svg>
           </div>
+
+          {/* ── More Books carousel ── */}
+          {otherBooks.length > 0 && (
+            <div className="more-books-section">
+              <div className="more-books-header">
+                <h2 className="more-books-heading">
+                  More <span>Publications</span>
+                </h2>
+                <div className="carousel-nav">
+                  <button className="carousel-btn" onClick={() => scroll('left')} aria-label="Scroll left">
+                    ←
+                  </button>
+                  <button className="carousel-btn" onClick={() => scroll('right')} aria-label="Scroll right">
+                    →
+                  </button>
+                </div>
+              </div>
+
+              <div className="carousel-track-wrap">
+                <div className="carousel-track" ref={trackRef}>
+                  {otherBooks.map((b) => (
+                    <Link key={b.slug} href={`/book/${b.slug}`} className="carousel-book-card">
+                      <div className="carousel-cover">
+                        <Image
+                          src={b.img}
+                          alt={b.title}
+                          width={120}
+                          height={170}
+                          style={{ objectFit: 'cover', objectPosition: 'center' }}
+                        />
+                      </div>
+                      <div className="carousel-book-info">
+                        <div>
+                          <p className="carousel-book-title">{b.title}</p>
+                          {b.desc && <p className="carousel-book-desc">{b.desc}</p>}
+                        </div>
+                        <span className="carousel-book-link">Read → Explore</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
         </div>
       </main>
