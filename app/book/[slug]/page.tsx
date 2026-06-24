@@ -6,6 +6,11 @@ import { booksAll } from '@/app/lib/bookData';
 import Image from 'next/image';
 import { useRef } from 'react';
 
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+
 export default function BookDetailsPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const book = booksAll.find((item) => item.slug === slug);
