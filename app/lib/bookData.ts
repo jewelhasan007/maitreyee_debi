@@ -15,7 +15,7 @@
       desc: 'মৈত্রেয়ী দেবী-র অনবদ্য সৃষ্টি',
       colorClass: 'book-cover-2',
       img: '/images/books/jhumura.jpg',
-      link: '#',
+      link: 'https://www.rokomari.com/book/296279/jhumura',
     },
     {
       id: 3,

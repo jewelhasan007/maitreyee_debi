@@ -426,7 +426,7 @@ export default function BookDetailsPage({ params }: { params: Promise<{ slug: st
                 </svg>
                 Buy on Amazon
               </a>
-              <p className="book-trust">Secure checkout · Ships worldwide via Amazon</p>
+              <p className="book-trust">Secure checkout · Ships worldwide via Online</p>
             </div>
           </div>
 
