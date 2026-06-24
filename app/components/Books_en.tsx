@@ -1,34 +1,11 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { booksAll } from '../lib/bookData';
 
 export default function Books_en() {
-  const books = [
-    {
-      id: 1,
-      title: 'জন্মভূমি ও প্রিয়জন',
-      desc: 'মৈত্রেয়ী দেবী-র লেখা — একুশে বইমেলা ২০২৪',
-      colorClass: 'book-cover-1',
-      img: '/images/books/jonmovhumi.jpg',
-      link: '#',
-    },
-    {
-      id: 2,
-      title: 'কুম্কুম',
-      desc: 'মৈত্রেয়ী দেবী-র অনবদ্য সৃষ্টি',
-      colorClass: 'book-cover-2',
-      img: '/images/books/jhumura.jpg',
-      link: '#',
-    },
-    {
-      id: 3,
-      title: 'ফুল পাখিদের কিচির মিচির',
-      desc: 'মৈত্রেয়ী দেবী-র শিশুতোষ গল্প',
-      colorClass: 'book-cover-3',
-      img: '/images/books/kichirmichir.jpg',
-      link: '#',
-    },
-  ];
+
 
   return (
     <section 
@@ -59,7 +36,7 @@ export default function Books_en() {
         </div>
 
         <div className="books-grid">
-          {books.map((book) => (
+          {booksAll.map((book) => (
             <div key={book.id} className="book-card">
               <div className={`book-cover ${book.colorClass}`}>
                 <Image
@@ -73,9 +50,14 @@ export default function Books_en() {
               <div className="book-info">
                 <div className="book-title-bn">{book.title}</div>
                 <div className="book-desc">{book.desc}</div>
-                <a href={book.link} className="book-link">
+
+                <Link
+              href={`/book/${book.slug}`}
+                 className="book-link"
+                >
                   Read → Explore
-                </a>
+                </Link>
+       
               </div>
             </div>
           ))}
