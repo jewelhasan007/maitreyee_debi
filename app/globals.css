@@ -1382,6 +1382,7 @@ section {
 /* ─── FOOTER ─── */
 footer {
   background: var(--indigo-deep);
+  font-family: var(--font-ubuntu);
   color: var(--ivory);
   padding: 3rem 5vw;
   text-align: center;
@@ -1391,12 +1392,14 @@ footer {
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
+  font-family: var(--font-ubuntu);
 }
 
 .footer-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+    font-family: var(--font-ubuntu);
 }
 
 .footer-title span {
@@ -1717,4 +1720,11 @@ footer {
 .hero-content {
   padding: 0 !important;
   max-width: none !important;
+}
+
+@media (min-width: 768px) {
+  .title-container {
+    flex-direction: row !important;
+    gap: 20px;
+  }
 }

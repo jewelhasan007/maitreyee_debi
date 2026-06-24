@@ -37,170 +37,187 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact">
-       <div className="timeline-header">
-   
-        <h2 className="timeline-heading">
-        Get in Touch
-        </h2>
+    <section 
+      id="contact" 
+      className="relative overflow-hidden"
+      style={{ background: 'transparent' }}
+    >
+      {/* Background Watermark */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `url('/images/watermark/watermark3.jpg')`,
+          backgroundRepeat: 'repeat',
+          backgroundPosition: 'center',
+          backgroundSize: '260px',
+          opacity: 0.08,
+          filter: 'grayscale(100%) brightness(1.5)',
+        }}
+      />
 
-        <p className="timeline-subtitle">
-  Let&apos;s collaborate, create, and preserve culture together
-        </p>
-      </div>
-  
-    
+      {/* Original Content - Unchanged */}
+      <div className="relative z-10">
+        <div className="timeline-header">
+          <h2 className="timeline-heading">
+            Get in Touch
+          </h2>
 
-      <div className="contact-wrapper">
-        {/* LEFT — INFO PANEL */}
-        <div className="contact-info-panel">
-          <div className="info-blob blob-1" />
-          <div className="info-blob blob-2" />
-
-          <div className="info-content">
-            <h3>Let&apos;s start a conversation</h3>
-            <p>
-              Whether it&apos;s a collaboration, an exhibition, or simply a
-              conversation about culture — I&apos;d love to hear from you.
-            </p>
-
-            <div className="info-items">
-              <div className="info-item">
-                <span className="info-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="m2 7 10 6 10-6" />
-                  </svg>
-                </span>
-                <div>
-                  <div className="info-label">Email</div>
-                  <div className="info-value">hello@maitreyidevi.com</div>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <span className="info-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                </span>
-                <div>
-                  <div className="info-label">Phone</div>
-                  <div className="info-value">+16 47XXX XXXXX</div>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <span className="info-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </span>
-                <div>
-                  <div className="info-label">Location</div>
-                  <div className="info-value">Ney York, USA</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p className="timeline-subtitle">
+            Let&apos;s collaborate, create, and preserve culture together
+          </p>
         </div>
 
-        {/* RIGHT — FORM CARD */}
-        <form className="contact-form-card" onSubmit={handleSubmit}>
-          {submitted && (
-            <div className="success-banner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              Message sent successfully!
+        <div className="contact-wrapper">
+          {/* LEFT — INFO PANEL */}
+          <div className="contact-info-panel">
+            <div className="info-blob blob-1" />
+            <div className="info-blob blob-2" />
+
+            <div className="info-content">
+              <h3>Let&apos;s start a conversation</h3>
+              <p>
+                Whether it&apos;s a collaboration, an exhibition, or simply a
+                conversation about culture — I&apos;d love to hear from you.
+              </p>
+
+              <div className="info-items">
+                <div className="info-item">
+                  <span className="info-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="m2 7 10 6 10-6" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div className="info-label">Email</div>
+                    <div className="info-value">hello@maitreyidevi.com</div>
+                  </div>
+                </div>
+
+                <div className="info-item">
+                  <span className="info-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div className="info-label">Phone</div>
+                    <div className="info-value">+16 47XXX XXXXX</div>
+                  </div>
+                </div>
+
+                <div className="info-item">
+                  <span className="info-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div className="info-label">Location</div>
+                    <div className="info-value">New York, USA</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          )}
-
-          <div className="form-group">
-            <span className="field-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="7" r="4" />
-                <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
-              </svg>
-            </span>
-            <input
-              type="text"
-              className="form-input"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder=" "
-              required
-            />
-            <label className="form-label">Name</label>
           </div>
 
-          <div className="form-group">
-            <span className="field-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m2 7 10 6 10-6" />
-              </svg>
-            </span>
-            <input
-              type="email"
-              className="form-input"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder=" "
-              required
-            />
-            <label className="form-label">Email</label>
-          </div>
-
-          <div className="form-group">
-            <span className="field-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 20h9" />
-                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
-              </svg>
-            </span>
-            <input
-              type="text"
-              className="form-input"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              placeholder=" "
-              required
-            />
-            <label className="form-label">Subject</label>
-          </div>
-
-          <div className="form-group">
-            <span className="field-icon textarea-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-              </svg>
-            </span>
-            <textarea
-              className="form-textarea"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder=" "
-              required
-            ></textarea>
-            <label className="form-label">Message</label>
-          </div>
-
-          <button type="submit" className={`btn-send ${submitted ? 'sent' : ''}`}>
-            <span>{submitted ? '✓ Sent!' : 'Send Message'}</span>
-            {!submitted && (
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
+          {/* RIGHT — FORM CARD */}
+          <form className="contact-form-card" onSubmit={handleSubmit}>
+            {submitted && (
+              <div className="success-banner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Message sent successfully!
+              </div>
             )}
-          </button>
-        </form>
+
+            <div className="form-group">
+              <span className="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="7" r="4" />
+                  <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
+                </svg>
+              </span>
+              <input
+                type="text"
+                className="form-input"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder=" "
+                required
+              />
+              <label className="form-label">Name</label>
+            </div>
+
+            <div className="form-group">
+              <span className="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m2 7 10 6 10-6" />
+                </svg>
+              </span>
+              <input
+                type="email"
+                className="form-input"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder=" "
+                required
+              />
+              <label className="form-label">Email</label>
+            </div>
+
+            <div className="form-group">
+              <span className="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 20h9" />
+                  <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                </svg>
+              </span>
+              <input
+                type="text"
+                className="form-input"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder=" "
+                required
+              />
+              <label className="form-label">Subject</label>
+            </div>
+
+            <div className="form-group">
+              <span className="field-icon textarea-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </span>
+              <textarea
+                className="form-textarea"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder=" "
+                required
+              ></textarea>
+              <label className="form-label">Message</label>
+            </div>
+
+            <button type="submit" className={`btn-send ${submitted ? 'sent' : ''}`}>
+              <span>{submitted ? '✓ Sent!' : 'Send Message'}</span>
+              {!submitted && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              )}
+            </button>
+          </form>
+        </div>
       </div>
 
       <style jsx>{`

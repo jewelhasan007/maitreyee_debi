@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   FaFacebookF,
   FaInstagram,
@@ -29,6 +30,7 @@ export default function Footer_en() {
       <div
         style={{
           position: "absolute",
+   
           inset: 0,
           backgroundImage: "url('/images/footer/footer.jpg')",
           backgroundSize: "cover",
@@ -58,25 +60,45 @@ export default function Footer_en() {
           maxWidth: "1200px",
           margin: "0 auto",
           padding: "3rem 1rem",
-          fontFamily: "'Hind Siliguri', sans-serif",
+          fontFamily: "var(--font-ubuntu)",
           textAlign: "center",
         }}
       >
         {/* TITLE */}
-        <div
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "2rem",
-            fontWeight: 600,
-            color: "#F0EBD6",
-            marginBottom: "1rem",
-          }}
-        >
-          Maitreyee{" "}
-          <span style={{ color: "#D4A843", fontStyle: "italic" }}>
-            Devi
-          </span>
-        </div>
+<div
+  className="title-container"
+  style={{
+    display: 'flex',
+    flexDirection: 'column',        // mobile default
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '16px',
+    fontFamily: "var(--font-ubuntu)",
+    fontSize: "2rem",
+    fontWeight: 600,
+    color: "#F0EBD6",
+    marginBottom: "1rem",
+    textAlign: 'center',
+  }}
+>
+<Image
+    src="/images/logo/logo2.jpg"
+    alt="Maitreyee Devi"
+    width={72}
+    height={72}
+    style={{
+      borderRadius: '8px',
+      objectFit: 'contain',
+    }}
+    priority
+  />
+  <div>
+    Maitreyee{" "}
+    <span style={{ color: "#D4A843", fontStyle: "italic" }}>
+      Devi
+    </span>
+  </div>
+</div>
 
         {/* SUBTITLE */}
         <div

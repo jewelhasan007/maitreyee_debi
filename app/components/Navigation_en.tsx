@@ -9,6 +9,7 @@ import {
   FaXTwitter,
   FaLinkedinIn,
 } from 'react-icons/fa6';
+import Image from 'next/image';
 
 export default function Navigation_en() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -106,19 +107,33 @@ export default function Navigation_en() {
         transition: 'all 0.35s ease',
       }}
     >
-      {/* LOGO */}
-      <a
-        href="#hero"
-        style={{
-          fontFamily: "var(--font-ubuntu), serif",
-          fontSize: '1.4rem',
-          fontWeight: 600,
-          color: '#F0EBD6',
-          textDecoration: 'none',
-        }}
-      >
-        Maitreyee <span style={{ color: '#D4A843' }}>Devi</span>
-      </a>
+{/* LOGO */}
+<a
+  href="#hero"
+  style={{
+    fontFamily: "var(--font-ubuntu), serif",
+    fontSize: '1.4rem',
+    fontWeight: 600,
+    color: '#F0EBD6',
+    textDecoration: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+  }}
+>
+  <Image
+    src="/images/logo/logo2.jpg"           // Put your logo in the public folder
+    alt="Maitreyee Devi"
+    width={48}                // Adjust size
+    height={48}
+    style={{
+      borderRadius: '6px',
+      objectFit: 'contain',
+    }}
+    priority // Recommended for logo in header
+  />
+  Maitreyee <span style={{ color: '#D4A843' }}>Devi</span>
+</a>
 
       {/* DESKTOP */}
       {!isMobile && (
