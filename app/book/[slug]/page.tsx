@@ -414,7 +414,7 @@ export default function BookDetailsPage({ params }: { params: Promise<{ slug: st
                 </div>
               </div>
               <a
-                href={book.amazonUrl || 'https://www.amazon.com'}
+                href={book.link || 'https://www.amazon.com'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="book-buy-btn"
