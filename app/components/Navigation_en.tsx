@@ -110,7 +110,7 @@ export default function Navigation_en() {
       <a
         href="#hero"
         style={{
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "var(--font-ubuntu), serif",
           fontSize: '1.4rem',
           fontWeight: 600,
           color: '#F0EBD6',
@@ -130,7 +130,7 @@ export default function Navigation_en() {
                   href={item.href}
                   style={{
                     fontSize: '0.85rem',
-                    fontFamily: "'Hind Siliguri', sans-serif",
+                     fontFamily: "var(--font-ubuntu), serif",
                     color: isActive(item.href) ? '#D4A843' : '#F0EBD6',
                     borderBottom: isActive(item.href)
                       ? '2px solid #D4A843'

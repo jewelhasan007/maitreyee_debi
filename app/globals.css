@@ -40,7 +40,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu), 'Hind Siliguri', system-ui, sans-serif;
   background: var(--ivory);
   color: var(--charcoal);
   overflow-x: hidden;
@@ -64,6 +64,7 @@ body {
 
 /* ─── NAV ─── */
 nav {
+ 
   position: fixed;
   top: 0;
   left: 0;
@@ -104,7 +105,7 @@ nav.scrolled {
 }
 
 .nav-links a {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.82rem;
   font-weight: 400;
   color: rgba(240, 235, 214, 0.85);
@@ -144,6 +145,7 @@ nav.scrolled {
   justify-content: center;
   overflow: hidden;
   background: var(--indigo-deep);
+  margin-top: 3.0rem;
 }
 
 .hero-bg {
@@ -207,7 +209,7 @@ nav.scrolled {
 }
 
 .hero-eyebrow {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 3px;
@@ -219,24 +221,26 @@ nav.scrolled {
 }
 
 .hero-name-bn {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 600;
   color: var(--ivory);
   line-height: 1;
   margin-bottom: 0.3rem;
+   margin-top: 2.0rem;
   opacity: 0;
   animation: fadeUp 0.8s ease 0.5s forwards;
 }
 
 .hero-name-en {
-  font-family: 'Cormorant Garamond', serif;
+ font-family: var(--font-ubuntu);
   font-size: clamp(1.2rem, 2.5vw, 1.9rem);
   font-weight: 300;
   font-style: italic;
   color: rgba(240, 235, 214, 0.6);
   letter-spacing: 2px;
   margin-bottom: 2.5rem;
+  margin-top: 2.0rem;
   opacity: 0;
   animation: fadeUp 0.8s ease 0.7s forwards;
 }
@@ -249,7 +253,7 @@ nav.scrolled {
 }
 
 .hero-tagline-bn {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: clamp(0.95rem, 1.5vw, 1.15rem);
   font-weight: 400;
   color: var(--ivory-warm);
@@ -258,7 +262,7 @@ nav.scrolled {
 }
 
 .hero-tagline-en {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-ubuntu);
   font-size: clamp(0.85rem, 1.3vw, 1rem);
   font-style: italic;
   color: rgba(240, 235, 214, 0.55);
@@ -278,7 +282,7 @@ nav.scrolled {
   border: 1px solid rgba(212, 168, 67, 0.5);
   padding: 0.3rem 1rem;
   border-radius: 100px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.78rem;
   color: var(--saffron-light);
   letter-spacing: 0.3px;
@@ -298,7 +302,7 @@ nav.scrolled {
 }
 
 .scroll-text {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.7rem;
   color: rgba(240, 235, 214, 0.5);
   letter-spacing: 1px;
@@ -377,7 +381,7 @@ section {
 }
 
 .section-subtitle {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 1rem;
   font-weight: 400;
   color: var(--text-mid);
@@ -401,7 +405,7 @@ section {
 }
 
 .about-text p {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 1rem;
   line-height: 1.8;
   color: var(--charcoal);
@@ -440,7 +444,7 @@ section {
 }
 
 .stat-label {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.9rem;
   color: var(--text-mid);
   margin-top: 0rem;
@@ -488,7 +492,7 @@ section {
   color: white;
   text-align: center;
   padding: 2rem;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 1.3rem;
 }
 
@@ -513,7 +517,7 @@ section {
 }
 
 .book-title-bn {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--indigo-deep);
@@ -521,7 +525,7 @@ section {
 }
 
 .book-desc {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.9rem;
   color: var(--text-light);
   line-height: 1.6;
@@ -558,7 +562,7 @@ section {
   padding: 0.8rem 1.2rem;
   border: 1px solid rgba(212, 168, 67, 0.3);
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.95rem;
   background: var(--white);
   color: var(--charcoal);
@@ -574,7 +578,7 @@ section {
   color: white;
   border: none;
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
@@ -603,7 +607,7 @@ section {
 }
 
 .music-video-title {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 1rem;
   font-weight: 600;
   color: var(--indigo-deep);
@@ -635,7 +639,7 @@ section {
   color: var(--text-mid);
   border-radius: 100px;
   cursor: pointer;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.9rem;
   transition: all 0.2s;
 }
@@ -683,7 +687,7 @@ section {
 }
 
 .social-intro p {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 1rem;
   line-height: 1.8;
   color: var(--text-mid);
@@ -709,7 +713,7 @@ section {
   padding: 0.8rem 1.2rem;
   border: 1px solid rgba(212, 168, 67, 0.3);
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.95rem;
   background: var(--white);
   color: var(--charcoal);
@@ -725,7 +729,7 @@ section {
   color: white;
   border: none;
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
@@ -757,7 +761,7 @@ section {
 
 .form-label {
   display: block;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-mid);
@@ -770,7 +774,7 @@ section {
   padding: 0.8rem 1.2rem;
   border: 1px solid rgba(212, 168, 67, 0.3);
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.95rem;
   background: var(--white);
   color: var(--charcoal);
@@ -792,7 +796,7 @@ section {
   color: white;
   border: none;
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
@@ -1400,7 +1404,7 @@ footer {
 }
 
 .footer-subtitle {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.95rem;
   line-height: 1.7;
   color: rgba(240, 235, 214, 0.8);
@@ -1421,7 +1425,7 @@ footer {
 .footer-link {
   color: var(--saffron-light);
   text-decoration: none;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.9rem;
   transition: color 0.2s;
 }
@@ -1433,7 +1437,7 @@ footer {
 .footer-bottom {
   border-top: 1px solid rgba(212, 168, 67, 0.15);
   padding-top: 2rem;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.85rem;
   color: rgba(240, 235, 214, 0.6);
 }
@@ -1516,7 +1520,7 @@ footer {
   padding: 0.8rem 1.2rem;
   border: 1px solid rgba(212, 168, 67, 0.3);
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.95rem;
   margin-bottom: 1rem;
   background: var(--white);
@@ -1534,14 +1538,14 @@ footer {
   color: white;
   border: none;
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-weight: 600;
   cursor: pointer;
 }
 
 .admin-error {
   color: var(--crimson);
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-size: 0.9rem;
   display: none;
   margin-bottom: 1rem;
@@ -1570,7 +1574,7 @@ footer {
   color: white;
   border: none;
   border-radius: 6px;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--font-ubuntu);
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
